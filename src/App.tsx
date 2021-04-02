@@ -1,11 +1,15 @@
 import React from 'react';
-
-import './App.css';
+import './App.scss';
+import CustomerRegistration from './pages/CustomerRegistration';
 
 function App() {
   return (
     <div className="App">
-      <h1>hello</h1>
+      <h1>Customer management app</h1>
+      {/* <Form />
+      <CustomerTable /> */}
+
+      <CustomerRegistration />
     </div>
   );
 }
