@@ -6,8 +6,6 @@ function App() {
   return (
     <div className="App">
       <h1>Customer management app</h1>
-      {/* <Form />
-      <CustomerTable /> */}
 
       <CustomerRegistration />
     </div>
