@@ -102,26 +102,30 @@ const CustomerRegistration = () => {
   };
 
   return (
-    <div>
-      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+    <>
+      <Button variant="outlined" color="primary" onClick={handleClickOpen} data-test="dialog-btn">
         Register new customer
       </Button>
-      <FormDialog
-        open={open}
-        handleClose={handleClose}
-        handleSubmit={handleSubmit}
-        handleChange={handleChange}
-        user={user}
-      />
+      <div data-test="form-dialog">
+        <FormDialog
+          open={open}
+          handleClose={handleClose}
+          handleSubmit={handleSubmit}
+          handleChange={handleChange}
+          user={user}
+        />
+      </div>
 
       <h3>Registered customers</h3>
-      <CustomerTable
-        customers={customers}
-        requestError={requestError}
-        handleEdit={handleEdit}
-        handleDelete={handleDelete}
-      />
-    </div>
+      <div data-test="customer-table">
+        <CustomerTable
+          customers={customers}
+          requestError={requestError}
+          handleEdit={handleEdit}
+          handleDelete={handleDelete}
+        />
+      </div>
+    </>
   );
 };
 

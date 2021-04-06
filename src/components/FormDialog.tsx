@@ -124,7 +124,7 @@ const FormDialog: React.FC<Props> = ({
         <Button onClick={handleClose} color="primary">
           Cancel
         </Button>
-        <Button onClick={handleSubmit} color="primary">
+        <Button onClick={handleSubmit} color="primary" id="submit-btn" type="submit">
           Save
         </Button>
       </DialogActions>

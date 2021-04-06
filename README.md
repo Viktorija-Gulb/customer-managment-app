@@ -2,7 +2,12 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Getting started with project
+
+1. download or clone project
+2. in the root directory run
+   > npm install
+3. > npm start
 
 In the project directory, you can run:
 
