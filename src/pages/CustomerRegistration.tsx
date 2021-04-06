@@ -117,7 +117,7 @@ const CustomerRegistration = () => {
       </div>
 
       <h3>Registered customers</h3>
-      <div data-test="customer-table">
+      <div data-test="customer-table-wrapper">
         <CustomerTable
           customers={customers}
           requestError={requestError}

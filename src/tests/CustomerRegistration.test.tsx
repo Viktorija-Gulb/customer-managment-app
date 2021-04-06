@@ -11,8 +11,9 @@ it('render registration page with form and table ', () => {
   const dialogBtn = wrapper.find('[data-test="dialog-btn"]');
   expect(dialogBtn).toHaveLength(1);
 
-  const table = wrapper.find('[data-test="customer-table"]');
+  const table = wrapper.find('[data-test="customer-table-wrapper"]');
   expect(table).toHaveLength(1);
+  // expect(table.prop.customers).toEqual([])
 
   const form = wrapper.find('[data-test="form-dialog"]');
   expect(form).toHaveLength(1);

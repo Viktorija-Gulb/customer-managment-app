@@ -35,7 +35,7 @@ const CustomerTable: React.FC<Props> = ({
 }: Props) => {
   const classes = useStyles();
   return (
-    <TableContainer component={Paper}>
+    <TableContainer component={Paper} data-test="customer-table">
       <Table aria-label="simple table">
         <TableHead>
           <TableRow>

@@ -13,14 +13,14 @@ it('render text inputs ', () => {
       handleChange={() => console.log('change')}
       handleSubmit={() => console.log('submit')}
       user={{
-        city: 'Vilnius',
-        email: 'name@rgh.com',
-        fullName: 'New customer',
-        houseNumber: '20',
-        id: 8638,
-        latitude: 54.7110274,
-        longitude: 25.2240778,
-        street: 'Virsuliskiu ',
+        city: '',
+        email: '',
+        fullName: '',
+        houseNumber: '',
+        id: 0,
+        latitude: undefined,
+        longitude: undefined,
+        street: '',
         zipCode: '',
       }}
     />
