@@ -12,6 +12,7 @@ import React from 'react';
 import EditIcon from '@material-ui/icons/Edit';
 import ClearIcon from '@material-ui/icons/Clear';
 import { User } from '../Types';
+import { tableHeader } from '../constants';
 
 const useStyles = makeStyles((theme) => ({
   actionBtns: {
@@ -21,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
 
 interface Props {
   customers: User[];
-  tableHeader: string[];
   requestError: boolean;
   handleEdit: (row: User) => void;
   handleDelete: (id: number) => void;
@@ -29,7 +29,6 @@ interface Props {
 
 const CustomerTable: React.FC<Props> = ({
   customers,
-  tableHeader,
   requestError,
   handleEdit,
   handleDelete,

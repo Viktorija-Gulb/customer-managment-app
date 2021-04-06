@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
 import {
   Button,
   Dialog,
@@ -22,9 +22,8 @@ const useStyles = makeStyles((theme: Theme) => ({
 interface Props {
   open: boolean;
   handleClose: () => void;
-  // handleSubmit: (e: any) => void;
-  handleSubmit: (e: any) => void;
-  handleChange: (e: any) => void;
+  handleSubmit: (e: React.MouseEvent<HTMLElement>) => void;
+  handleChange: (e: ChangeEvent<HTMLInputElement>) => void;
   user: User;
 }
 

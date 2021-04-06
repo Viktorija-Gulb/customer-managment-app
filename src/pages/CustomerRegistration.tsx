@@ -7,17 +7,6 @@ import FormDialog from '../components/FormDialog';
 import { useStickyState } from '../hooks/useStickyState';
 import { User } from '../Types';
 
-const tableHeader = [
-  'Full name',
-  'Email',
-  'City',
-  'Street',
-  'House number',
-  'Zip code',
-  'Latitude',
-  'Longtitute',
-];
-
 const initialState = {
   id: 0,
   fullName: '',
@@ -38,9 +27,11 @@ const CustomerRegistration = () => {
 
   const [user, setUser] = useState<User>(initialState);
 
+  const existedUser = customers.some((x: User) => x.id === user.id);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
-    user.id !== 0
+    existedUser
       ? setUser({
           ...user,
           id: user.id,
@@ -71,35 +62,23 @@ const CustomerRegistration = () => {
       })
       .then((response) => {
         const coordinates = response.data.results[0]?.geometry.location;
-        if (coordinates) {
-          user.id !== 0
-            ? setCustomers(
-                customers.map((x: User) =>
-                  x.id === user.id
-                    ? {
-                        ...x,
-                        id: x.id,
-                        fullName: user.fullName,
-                        email: user.email,
-                        city: user.city,
-                        street: user.street,
-                        houseNumber: user.houseNumber,
-                        zipCode: user.zipCode,
-                        latitude: coordinates.lat,
-                        longitude: coordinates.lng,
-                      }
-                    : x
-                )
+        existedUser
+          ? setCustomers(
+              customers.map((x: User) =>
+                x.id === user.id
+                  ? {
+                      ...user,
+                      id: x.id,
+                      latitude: coordinates.lat,
+                      longitude: coordinates.lng,
+                    }
+                  : x
               )
-            : setCustomers([
-                ...customers,
-                {
-                  ...user,
-                  latitude: coordinates.lat,
-                  longitude: coordinates.lng,
-                },
-              ]);
-        }
+            )
+          : setCustomers([
+              ...customers,
+              { ...user, latitude: coordinates.lat, longitude: coordinates.lng },
+            ]);
       })
       .catch((error) => {
         setRequestError(true);
@@ -107,10 +86,9 @@ const CustomerRegistration = () => {
       });
   }
 
-  const handleSubmit = (e: any) => {
+  const handleSubmit = () => {
     setOpen(false);
     geocode();
-
     setUser(initialState);
   };
 
@@ -139,7 +117,6 @@ const CustomerRegistration = () => {
       <h3>Registered customers</h3>
       <CustomerTable
         customers={customers}
-        tableHeader={tableHeader}
         requestError={requestError}
         handleEdit={handleEdit}
         handleDelete={handleDelete}
