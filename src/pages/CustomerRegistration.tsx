@@ -1,9 +1,10 @@
 import { Button } from '@material-ui/core';
 import axios from 'axios';
 import React, { useState } from 'react';
-import { API_KEY, BASE_URL } from '../api/constants';
+
 import CustomerTable from '../components/CustomerTable';
 import FormDialog from '../components/FormDialog';
+import { BASE_URL, API_KEY } from '../constants';
 import { useStickyState } from '../hooks/useStickyState';
 import { User } from '../Types';
 
@@ -117,7 +118,7 @@ const CustomerRegistration = () => {
       </div>
 
       <h3>Registered customers</h3>
-      <div data-test="customer-table-wrapper">
+      <div data-test="customer-table-wrapper" className="tableWrapper">
         <CustomerTable
           customers={customers}
           requestError={requestError}
