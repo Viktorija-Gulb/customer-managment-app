@@ -7,7 +7,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 1. download or clone project
 2. in the root directory run
    > npm install
-3. > npm start
+3. add API key in root folder constants.ts file
+4. > npm start
 
 In the project directory, you can run:
 
